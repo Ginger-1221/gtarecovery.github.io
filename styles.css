@@ -1,23 +1,39 @@
 /* Theme Variables */
+:root {
+    /* Light theme - now secondary */
+    --light-bg-primary: #ffffff;
+    --light-bg-secondary: #f5f5f5;
+    --light-text-primary: #1a1a1a;
+    --light-text-secondary: #666666;
+    --light-accent-color: #00ff9d;
+    --light-accent-hover: #00e88d;
+    --light-card-bg: #ffffff;
+    --light-header-bg: #1a1a1a;
+    --light-shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme colors - now primary */
 :root[data-theme="light"] {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f5f5f5;
-    --text-primary: #333333;
-    --text-secondary: #666666;
-    --accent-color: #00ff9d;
-    --card-bg: #ffffff;
-    --header-bg: rgba(26, 26, 26, 0.95);
-    --shadow-color: rgba(0, 0, 0, 0.1);
+    --bg-primary: var(--light-bg-primary);
+    --bg-secondary: var(--light-bg-secondary);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --accent-color: var(--light-accent-color);
+    --accent-hover: var(--light-accent-hover);
+    --card-bg: var(--light-card-bg);
+    --header-bg: var(--light-header-bg);
+    --shadow-color: var(--light-shadow-color);
 }
 
 :root[data-theme="dark"] {
-    --bg-primary: #1a1a1a;
-    --bg-secondary: #2a2a2a;
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
     --text-primary: #ffffff;
-    --text-secondary: #cccccc;
+    --text-secondary: #a0a0a0;
     --accent-color: #00ff9d;
-    --card-bg: #333333;
-    --header-bg: rgba(0, 0, 0, 0.95);
+    --accent-hover: #00e88d;
+    --card-bg: #1a1a1a;
+    --header-bg: #0a0a0a;
     --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -538,21 +554,50 @@ nav a:hover {
     box-shadow: 0 10px 20px var(--shadow-color);
 }
 
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.service-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.service-features li i {
+    color: var(--accent-color);
+    font-size: 1rem;
+}
+
 .service-cta {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     margin-top: 1.5rem;
-    padding: 0.5rem 1rem;
-    background-color: var(--accent-color);
+    padding: 0.75rem 1.5rem;
+    background-color: var(--bg-secondary);
     color: var(--text-primary);
     text-decoration: none;
-    border-radius: 5px;
-    transition: transform 0.3s;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .service-cta:hover {
-    transform: translateX(5px);
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.service-cta i {
+    transition: transform 0.3s ease;
+}
+
+.service-cta:hover i {
+    transform: translateX(4px);
 }
 
 /* About section */
@@ -625,182 +670,360 @@ nav a:hover {
 
 /* Contact section */
 .contact {
-    padding: var(--section-padding);
-    background-color: var(--bg-secondary);
-    position: relative;
-    overflow: hidden;
-}
-
-.contact::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 0% 0%, rgba(0, 255, 157, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 100% 100%, rgba(0, 255, 157, 0.05) 0%, transparent 50%);
-    pointer-events: none;
+    padding: 6rem 2rem;
+    background-color: var(--bg-primary);
 }
 
 .contact-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
-    position: relative;
-    z-index: 1;
+    max-width: 800px;
+    margin: 3rem auto 0;
+    padding: 0 1rem;
 }
 
-.contact-form {
-    background-color: var(--card-bg);
-    padding: 2.5rem;
-    border-radius: 15px;
+.discord-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
     box-shadow: 0 4px 6px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
-    position: relative;
+.discord-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-color);
 }
 
-.form-group i {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--accent-color);
-    font-size: 1.2rem;
-    pointer-events: none;
+.discord-header {
+    margin-bottom: 2.5rem;
 }
 
-.form-group textarea + i {
-    top: 1.5rem;
-    transform: none;
+.discord-header i {
+    font-size: 4rem;
+    color: #5865F2;
+    margin-bottom: 1rem;
 }
 
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 1rem 1rem 1rem 3rem;
-    border: 2px solid var(--bg-secondary);
-    border-radius: 8px;
-    background-color: var(--bg-primary);
+.discord-header h3 {
+    font-size: 2rem;
     color: var(--text-primary);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    font-family: inherit;
+    margin-bottom: 1rem;
 }
 
-.form-group textarea {
-    resize: vertical;
-    min-height: 150px;
-    padding-top: 1.5rem;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--accent-color);
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 255, 157, 0.1);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
+.discord-header p {
     color: var(--text-secondary);
-    opacity: 0.7;
+    font-size: 1.1rem;
 }
 
-.contact-form button {
-    width: 100%;
-    padding: 1rem 2rem;
-    background-color: var(--accent-color);
-    color: var(--bg-primary);
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
+.discord-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.discord-features .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.discord-features .feature i {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+}
+
+.discord-features .feature span {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.discord-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: #5865F2;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
     font-weight: 600;
-    cursor: pointer;
     transition: all 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.discord-cta:hover {
+    background: #4752C4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+}
+
+.discord-cta i {
+    font-size: 1.4rem;
+}
+
+.discord-note {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
 }
 
-.contact-form button i {
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
+.discord-note i {
+    color: var(--accent-color);
 }
 
-.contact-form button:hover {
-    background-color: #00e88d;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 255, 157, 0.3);
+@media (max-width: 768px) {
+    .discord-features {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .discord-features .feature {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .discord-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .discord-header h3 {
+        font-size: 1.8rem;
+    }
+
+    .discord-cta {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
-.contact-form button:hover i {
-    transform: translateX(3px);
+/* Pricing Section */
+.pricing {
+    padding: 6rem 2rem;
+    background-color: var(--bg-primary);
 }
 
-.contact-info {
+.pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    padding: 0 1rem;
 }
 
-.info-item {
-    padding: 2rem;
+.pricing-card {
     background: var(--card-bg);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    overflow: hidden;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.pricing-card.popular {
+    border: 2px solid var(--accent-color);
+    transform: scale(1.05);
+}
+
+.pricing-card.popular:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.popular-badge {
+    position: absolute;
+    top: 1rem;
+    right: -2rem;
+    background: var(--accent-color);
+    color: var(--bg-primary);
+    padding: 0.5rem 3rem;
+    transform: rotate(45deg);
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-header {
+    margin-bottom: 2rem;
+}
+
+.pricing-header i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.pricing-header h3 {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.money-amount {
+    font-size: 1.4rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.price {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.price .currency {
+    font-size: 1.5rem;
+    font-weight: 600;
+    vertical-align: top;
+    margin-right: 0.2rem;
+}
+
+.pricing-features {
+    margin: 2rem 0;
+}
+
+.pricing-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pricing-features li {
+    padding: 0.75rem 0;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.pricing-features i {
+    font-size: 1rem;
+    color: #00cc66;
+}
+
+.pricing-features .fa-check {
+    color: #00cc66;
+}
+
+.pricing-features .fa-times {
+    color: #ff4444;
+}
+
+.pricing-cta {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.pricing-cta:hover {
+    background: var(--accent-color);
+    color: var(--bg-primary);
+    transform: translateY(-2px);
+}
+
+.pricing-cta.popular {
+    background: var(--accent-color);
+    color: var(--bg-primary);
+}
+
+.pricing-cta.popular:hover {
+    background: transparent;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* Additional Packages */
+.additional-packages {
+    max-width: 1200px;
+    margin: 4rem auto 0;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.additional-packages h3 {
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.package-item {
+    background: var(--card-bg);
+    padding: 1.5rem;
     border-radius: 15px;
     box-shadow: 0 4px 6px var(--shadow-color);
-    text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.info-item:hover {
+.package-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px var(--shadow-color);
 }
 
-.info-item i {
-    font-size: 2rem;
+.package-item .money {
+    display: block;
+    font-size: 1.4rem;
     color: var(--accent-color);
-    margin-bottom: 1rem;
-}
-
-.info-item h4 {
-    color: var(--text-primary);
-    font-size: 1.2rem;
+    font-weight: 600;
     margin-bottom: 0.5rem;
 }
 
-.info-item p {
-    color: var(--text-secondary);
+.package-item .price {
+    display: block;
+    font-size: 1.6rem;
+    color: var(--text-primary);
+    font-weight: 700;
 }
 
 @media (max-width: 768px) {
-    .contact-container {
+    .pricing-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        max-width: 400px;
     }
 
-    .contact-form,
-    .info-item {
-        padding: 1.5rem;
+    .pricing-card.popular {
+        transform: scale(1);
     }
 
-    .info-item {
-        text-align: left;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
+    .pricing-card.popular:hover {
+        transform: translateY(-10px);
     }
 
-    .info-item i {
-        margin-bottom: 0;
+    .package-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .package-grid {
+        grid-template-columns: 1fr;
     }
 }
 
