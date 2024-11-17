@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +12,32 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loader-content">
+            <i class="fas fa-shield-alt"></i>
+            <span>Loading...</span>
+        </div>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <header>
         <nav>
             <div class="logo"><i class="fas fa-shield-alt"></i> GTA Recovery</div>
-            <ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
                 <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
                 <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
@@ -26,30 +48,39 @@
 
     <main>
         <section id="home" class="hero">
-            <h1>Professional GTA Online Recovery Services</h1>
-            <p>Fast, Safe, and Reliable Account Services</p>
-            <div class="cta-buttons">
-                <a href="#services" class="cta-button primary"><i class="fas fa-rocket"></i> View Our Services</a>
-                <a href="#contact" class="cta-button secondary"><i class="fas fa-envelope"></i> Contact Us</a>
+            <div class="hero-content">
+                <h1>Professional GTA Online Recovery Services</h1>
+                <p>Fast, Safe, and Reliable Account Services</p>
+                <div class="cta-buttons">
+                    <a href="#services" class="cta-button primary"><i class="fas fa-rocket"></i> View Our Services</a>
+                    <a href="#contact" class="cta-button secondary"><i class="fas fa-envelope"></i> Contact Us</a>
+                </div>
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>100% Secure</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <span>Fast Delivery</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-headset"></i>
+                        <span>24/7 Support</span>
+                    </div>
+                </div>
             </div>
-            <div class="hero-features">
-                <div class="feature">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>100% Secure</span>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-bolt"></i>
-                    <span>Fast Delivery</span>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-headset"></i>
-                    <span>24/7 Support</span>
-                </div>
+            <div class="hero-scroll-indicator">
+                <div class="mouse"></div>
+                <span>Scroll Down</span>
             </div>
         </section>
 
         <section id="services" class="services">
-            <h2><i class="fas fa-star"></i> Our Services</h2>
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> Our Services</h2>
+                <p>Choose from our range of professional services</p>
+            </div>
             <div class="service-grid">
                 <div class="service-card">
                     <i class="fas fa-user-shield"></i>
@@ -60,6 +91,7 @@
                         <li><i class="fas fa-check"></i> Secure Methods</li>
                         <li><i class="fas fa-check"></i> 24/7 Support</li>
                     </ul>
+                    <a href="#contact" class="service-cta">Get Started <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-level-up-alt"></i>
@@ -70,6 +102,7 @@
                         <li><i class="fas fa-check"></i> Safe Methods</li>
                         <li><i class="fas fa-check"></i> Custom Options</li>
                     </ul>
+                    <a href="#contact" class="service-cta">Get Started <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="service-card">
                     <i class="fas fa-tools"></i>
@@ -80,12 +113,16 @@
                         <li><i class="fas fa-check"></i> Flexible Options</li>
                         <li><i class="fas fa-check"></i> Priority Support</li>
                     </ul>
+                    <a href="#contact" class="service-cta">Get Started <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </section>
 
         <section id="about" class="about">
-            <h2><i class="fas fa-info-circle"></i> About Us</h2>
+            <div class="section-header">
+                <h2><i class="fas fa-info-circle"></i> About Us</h2>
+                <p>Learn why customers choose our services</p>
+            </div>
             <div class="about-content">
                 <div class="about-text">
                     <p>We are a dedicated team of professionals providing reliable and secure GTA Online services. With years of experience, we ensure the best results for our clients.</p>
@@ -111,8 +148,10 @@
         </section>
 
         <section id="contact" class="contact">
-            <h2><i class="fas fa-envelope"></i> Contact Us</h2>
-            <p>Get in touch with us for any inquiries or support</p>
+            <div class="section-header">
+                <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+                <p>Get in touch with us for any inquiries or support</p>
+            </div>
             <div class="contact-container">
                 <form class="contact-form">
                     <div class="form-group">
@@ -140,6 +179,11 @@
                         <h4>Email</h4>
                         <p>support@gtarecovery.com</p>
                     </div>
+                    <div class="info-item">
+                        <i class="fas fa-headset"></i>
+                        <h4>Support</h4>
+                        <p>Live Chat Available</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -159,9 +203,9 @@
             <div class="footer-section">
                 <h4><i class="fas fa-users"></i> Connect With Us</h4>
                 <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-link" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
             <div class="footer-section">
@@ -169,5 +213,53 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Loading Animation
+        window.addEventListener('load', () => {
+            document.querySelector('.loader').style.opacity = '0';
+            setTimeout(() => {
+                document.querySelector('.loader').style.display = 'none';
+            }, 500);
+        });
+
+        // Dark Mode Toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.setAttribute('data-theme', 
+                document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light'
+            );
+        });
+
+        // Scroll to Top
+        const scrollTop = document.querySelector('.scroll-top');
+        window.addEventListener('scroll', () => {
+            scrollTop.classList.toggle('visible', window.scrollY > 300);
+        });
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        });
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                navLinks.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
